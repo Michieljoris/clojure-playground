@@ -1,0 +1,7 @@
+{"version":3,
+ "file":
+ "/media/michieljoris/d5099508-7d17-4aea-ac80-ac38100b9447/home/michieljoris/mysrc/lisp/clojure/cljs/hello-dev/resources/public/devcards/js/compiled/out/hello_dev/core.js",
+ "sources":["core.cljs"],
+ "lineCount":6,
+ "mappings":";AAAA;;AAQA,AAACA",
+ "names":["cljs.core/enable-console-print!"]}

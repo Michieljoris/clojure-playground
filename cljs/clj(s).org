@@ -1,0 +1,127 @@
+* Clojure libs 
+http://hoplon.io/#/getting-started/
+https://github.com/bhauman/lein-figwheel
+https://github.com/r0man/sablono
+https://github.com/weavejester/hiccup
+https://github.com/cgrand/enlive
+
+* Flux
+ https://github.com/facebook/flux
+ http://fluxxor.com/
+ https://github.com/yahoo/dispatchr
+ https://medium.com/@garychambers108/understanding-flux-f93e9f650af7
+http://spoike.ghost.io/deconstructing-reactjss-flux/
+https://github.com/facebook/flux
+https://news.ycombinator.com/item?id=8097776
+http://facebook.github.io/react/docs/flux-overview.html
+https://news.ycombinator.com/item?id=7719957
+
+https://justin.harmonize.fm/development/2014/08/05/om-and-flux.html
+
+* reagent
+  https://github.com/holmsand/reagent
+
+* Om
+http://facebook.github.io/react/docs/tutorial.html
+https://github.com/jalehman/react-tutorial-om
+http://facebook.github.io/react/blog/2013/11/05/thinking-in-react.html
+http://www.lexicallyscoped.com/2013/12/25/slice-of-reactjs-and-cljs.html
+https://github.com/swannodette/todomvc/tree/gh-pages/labs/architecture-examples/om
+https://github.com/jalehman/react-tutorial-om
+https://github.com/jalehman/omtut-starter
+
+-->
+https://github.com/swannodette/om/wiki/Basic-Tutorial
+
+* Blogs/articles
+http://swannodette.github.io/
+http://swannodette.github.io/2013/10/27/the-essence-of-clojurescript/
+http://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs/
+http://caffeinatedideas.com/2013/08/29/taming-nodejs-with-clojurescript.html
+
+* Learning Clojure
+http://clojure.org/cheatsheet
+http://jafingerhut.github.io/cheatsheet/grimoire/cheatsheet-tiptip-cdocs-summary.html
+https://himera.herokuapp.com/synonym.html
+https://www.4clojure.com/problems
+http://clojurekoans.com/
+https://github.com/functional-koans/clojure-koans
+http://www.braveclojure.com/functional-programming/
+https://github.com/magomimmo/cljs-start
+https://github.com/magomimmo/modern-cljs/tree/master/cljs-tutorial
+
+* Setting up Clojure
+http://yobriefca.se/blog/2014/05/30/basic-clojurescript-setup/
+https://github.com/cemerick/austin#project-repls
+
+* Cool!!
+http://rigsomelight.com/2014/05/01/interactive-programming-flappy-bird-clojurescript.html
+http://andreypopp.com/posts/2013-11-09-recreating-core-async-tutorial-with-es6-generators.html
+http://tombooth.co.uk/painting-in-clojurek/
+https://github.com/ubolonton/js-csp
+Requests:
+http://visionmedia.github.io/superagent/#cors
+
+* Stack?
+Serverless with couchdb and workers 
+
+Clojurescript, async, om, flux
+
+http://facebook.github.io/react/docs/working-with-the-browser.html
+
+* cljsbuild
+https://github.com/emezeske/lein-cljsbuild/blob/master/sample.project.clj#L73
+
+core.cljs:
+(ns om-test.core
+  (:require [om.core :as om :include-macros true]
+            [om.dom :as dom :include-macros true]
+	    ;; >>>>
+            [clojure.browser.repl :as repl]
+	    ;; >>>>
+            ))
+	    
+ ;; >>>>
+(repl/connect "http://localhost:9000/repl")
+ ;; >>>>
+------------------------------------------ 
+project.clj:
+(defproject om-test "0.1.0-SNAPSHOT"
+  :description "<some description>"
+  :url "<some url>"
+
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/clojurescript "0.0-2268"]
+                 [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
+                 [om "0.6.5"]
+ ;; >>>>
+                 [com.cemerick/piggieback "0.1.3"]
+ ;; >>>>
+                 ]
+  
+ ;; >>>>
+  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+ ;; >>>>
+ 
+  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
+
+  :source-paths ["src"]
+
+  :cljsbuild {
+    :builds [{:id "dev" ; I just called the build dev since no optimizations are done
+              :source-paths ["src"]
+              ; :notify-command ["./test.sh" "-m"]
+              :compiler { 
+                         :output-to "main.js"
+                         :output-dir "build"
+                         :optimizations :none
+                         :source-map true}}]})
+
+M-x cider-jack-in
+In repl:
+user> (cemerick.piggieback/cljs-repl
+user> (cemerick.piggieback/cljs-repl
+    :repl-env (cljs.repl.browser/repl-env :port 9000))
+cljs.user> (.log js/console "ok then")
+	      
+Serve index.html with bb-server or any other server.

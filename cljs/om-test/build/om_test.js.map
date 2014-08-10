@@ -1,0 +1,11 @@
+{"version":3,
+ "file":
+ "/media/michieljoris/d5099508-7d17-4aea-ac80-ac38100b9447/home/michieljoris/mysrc/lisp/clojure/cljs/om-test/build/om_test.js",
+ "sources":["app.cljs"],
+ "lineCount":13,
+ "mappings":
+ ";AAAA;;;;;;AAIA,AAACA;AAGD,AAAKC,oBAAU,yBAAA,2CAAA,sDAAA,1HAACC;AAEhB,AAACC,uBACC,sBAAA,XAAKC,IAAIC,OACP,OAAAC,aAAA,KAAY,AAAA,oFAAOF;qBAFvB,2CAAA,7DAGEH,qHACS,wBAAA,xBAAGM",
+ "names":
+ ["cljs.core/enable-console-print!", "om_test/app-state",
+  "cljs.core/atom", "om.core/root", "app", "owner", "js/React.DOM.h1",
+  "js/document"]}

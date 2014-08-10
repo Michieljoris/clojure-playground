@@ -1,0 +1,13 @@
+(run)
+(def repl-env (reset! cemerick.austin.repls/browser-repl-env
+                      (cemerick.austin/repl-env)))
+(cemerick.austin.repls/cljs-repl repl-env)
+(.log js/console "hello")
+(.log js/console "helloasdfasfa")
+(run)
+(def repl-env (reset! cemerick.austin.repls/browser-repl-env
+                      (cemerick.austin/repl-env)))
+(cemerick.austin.repls/cljs-repl repl-env)
+(.log js/console "hello")
+:cljs/quit
+:quit
