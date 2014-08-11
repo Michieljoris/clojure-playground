@@ -32,6 +32,7 @@ https://github.com/jalehman/omtut-starter
 
 -->
 https://github.com/swannodette/om/wiki/Basic-Tutorial
+https://github.com/swannodette/om-sync
 
 * Blogs/articles
 http://swannodette.github.io/
@@ -59,8 +60,11 @@ http://rigsomelight.com/2014/05/01/interactive-programming-flappy-bird-clojuresc
 http://andreypopp.com/posts/2013-11-09-recreating-core-async-tutorial-with-es6-generators.html
 http://tombooth.co.uk/painting-in-clojurek/
 https://github.com/ubolonton/js-csp
+https://github.com/zubairq/coils
 Requests:
 http://visionmedia.github.io/superagent/#cors
+Tables a la react
+https://github.com/glittershark/reactable
 
 * Stack?
 Serverless with couchdb and workers 
@@ -125,3 +129,10 @@ user> (cemerick.piggieback/cljs-repl
 cljs.user> (.log js/console "ok then")
 	      
 Serve index.html with bb-server or any other server.
+
+* datomic
+https://github.com/Datomic/day-of-datomic
+http://www.learndatalogtoday.org/
+
+* components
+http://www.reactjsx.com/
