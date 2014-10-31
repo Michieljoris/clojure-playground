@@ -17,3 +17,5 @@
 (a-method [this arg1 arg2] "method docstring")
 (another-method [x] [x arg] "docstring"))
 
+(println "hello")
+
