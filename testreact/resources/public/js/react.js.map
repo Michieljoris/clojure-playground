@@ -1,0 +1,10 @@
+{"version":3,
+ "file":
+ "/media/212gig/mysrc/lisp/clojure/playground/testreact/resources/public/js/react.js",
+ "sources":["react.cljs"],
+ "lineCount":12,
+ "mappings":
+ ";AAAA;;;;;AAGA,yBAAA,6BAAA,AAAA,0FAAA,mDAAA,mFAAA,8CAAA,4BAAA,mFAAA,oEAAA,UAAA,mFAAA,wDAAA,eAAA,mFAAA,qDAAA,2CAAA,uDAAA,2CAAA,uDAAA,sBAAA,oBAAA,jhCAAMA;;AASN,gBAAA,oBAAA,pCAAMC,oCACJ,+CAAA,xCAACC,2HAA0BF,+BACD,AAAQG",
+ "names":
+ ["react/simple-component", "react/mountit",
+  "reagent.core/render-component", "js/document"]}

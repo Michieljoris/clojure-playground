@@ -1,0 +1,10 @@
+{"version":3,
+ "file":
+ "/media/212gig/mysrc/lisp/clojure/playground/testreact/resources/public/js/testreact/core.js",
+ "sources":["core.cljs"],
+ "lineCount":16,
+ "mappings":
+ ";AAAA;;;;;;;AAiBA,GAAA,EAAQ,AAACA;CACP,8BAAA,9BAACC;;CADH;AAQA,AAACC;AAED,4BAAA,5BAACC",
+ "names":
+ ["weasel.repl/alive?", "weasel.repl/connect",
+  "cljs.core/enable-console-print!", "cljs.core/println"]}

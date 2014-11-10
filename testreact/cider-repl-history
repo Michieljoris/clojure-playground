@@ -1,0 +1,12 @@
+;; -*- coding: utf-8-unix -*-
+;; Automatically written history of CIDER REPL session
+;; Edit at your own risk
+
+("1" "(def m (mult to-mult))" "(def to-mult (chan 1))" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if v (recur)))
+        
+        )))")

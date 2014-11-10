@@ -1,0 +1,304 @@
+;; -*- coding: utf-8-unix -*-
+;; Automatically written history of CIDER REPL session
+;; Edit at your own risk
+
+("(take! c (fn [x]
+           (println x)))" "(put! c 42)" "(def c (chan))" "(js/alert \"We're running ClojureScript\")" "(ns test-react.cljs-async
+  (:require [cljs.core.async :refer [chan put! take! timeout] :as async]
+            [clojure.walk :refer [prewalk]]
+            [goog.net.XhrIo])
+  (:require-macros [cljs.core.async.macros :refer [go]]))" "(def c (chan))" "1" "(ns test-reacht.cljs-async
+  (:require [cljs.core.async :refer [chan put! take! timeout] :as async]
+            [clojure.walk :refer [prewalk]]
+            [goog.net.XhrIo])
+  (:require-macros [cljs.core.async.macros :refer [go]]))" "(ns cljs-async
+  (:require [cljs.core.async :refer [chan put! take! timeout] :as async]
+            [clojure.walk :refer [prewalk]]
+            [goog.net.XhrIo])
+  (:require-macros [cljs.core.async.macros :refer [go]]))" "(def c (chan))" "(js/alert \"We're running ClojureScript\")" "1" " 1" "1" "(require 'mjstarter.core) (mjstarter.core/weasel)" ":cljs/quit" "1" "(cemerick.piggieback/cljs-repl
+  :repl-env (cljs.repl.browser/repl-env :port 9000))" "(require 'cljs.repl.browser)" "(close! slurp-service)" "(<!! (slurp-async \"project.clj\"))" "(defn slurp-async [& args]
+  (let [c (chan 1)]
+    ;; put! is tied to the take! from chan
+    ;; so no unbounded-ness here.
+    (put! slurp-service [args c])
+    c))" "(def slurp-service (function-service (comp read-string slurp) 2))" "(defn function-service [f num-threads]
+  (let [c (chan num-threads)]
+    (dotimes [x num-threads]
+      (thread
+       (loop []
+         (when-let [[args ret-chan] (<!! c)]
+           (>!! ret-chan (apply f args))
+           (recur)))))
+    c))" "(dotimes [x 5000]
+  (swap! a inc))" "(go (while true
+      (let [tout (timeout 50)]
+        (when-let [x (<! watch-c)]
+          (println \"-----> \"@a)
+          (<! tout)))))" "(add-watch a :chan-watch
+           (fn [k r o n]
+               (put! watch-c :ping)))" "(def watch-c (chan (dropping-buffer 1)))" "(def a (atom 1))" "(dotimes [x 5000]
+  (swap! a inc))" "(go (while true
+      (let [tout (timeout 50)]
+        (when-let [x (<! watch-c)]
+          (println \"-----> \"@a)
+          (<! tout)))))" "(dotimes [x 5000]
+  (swap! a inc))" "(dotimes [x 1000]
+  (swap! a inc))" "(go (while true
+      (let [tout (timeout 5)]
+        (when-let [x (<! watch-c)]
+          (println \"-----> \"@a)
+          (<! tout)))))" "(dotimes [x 1000]
+  (swap! a inc))" "(go (while true
+      (let [tout (timeout 100)]
+        (when-let [x (<! watch-c)]
+          (println \"-----> \"@a)
+          (<! tout)))))" "(add-watch a :chan-watch
+           (fn [k r o n]
+               (put! watch-c :ping)))" "(def watch-c (chan (dropping-buffer 1)))" "(def a (atom 1))" "(dotimes [x 1000]
+  (swap! a inc))" "(def a (atom 1))" "(dotimes [x 1000]
+  (swap! a inc))" "(go (while true
+      (let [tout (timeout 100)]
+        (when-let [x (<! watch-c)]
+          (println \"-----> \"@a)
+          (<! tout)))))" "(add-watch a :chan-watch
+           (fn [k r o n]
+               (put! watch-c :ping)))" "(def watch-c (chan (dropping-buffer 1)))" "(def a (atom 1))" "(! counter {:type :get
+            :to ptr})" "(! counter {:type :inc})" "(def counter (spawn-counter))" "(def ptr (printer))" "(defn printer []
+  (spawn (fn ptr [msg]
+           (println \"Got:\" msg)
+           ptr)))" "(defn spawn-counter []
+  (let [counter (fn counter [cnt msg]
+                  (case (:type msg)
+                    :inc (partial counter (inc cnt))
+                    :get (do (! (:to msg) cnt)
+                             (partial counter cnt))))]
+    (spawn (partial counter 0))))" "(defn spawn [f]
+  (let [c (chan Integer/MAX_VALUE)]
+    (go (loop [f f]
+          (recur (f (<! c)))))
+    (reify IActor
+      (! [this msg]
+        (put! c msg)))))" "(defprotocol IActor
+  (! [this msg]))" "(close! to-pub)" "(send-with-tags {:msg \"New Pet Story\"
+                 :tags [:cats :dogs]})" "(send-with-tags {:msg \"New Dog Story\"
+                 :tags [:dogs]})" "(send-with-tags {:msg \"New Cat Story\"
+                 :tags [:cats]})" "(defn send-with-tags [msg]
+  (doseq [tag (:tags msg)]
+    (println \"sending... \" tag)
+    (>!! to-pub {:tag tag
+                 :msg (:msg msg)})))" "(let [c (chan 1)]
+  (sub p :dogs c)
+  (sub p :cats c)
+  (go (println \"I like cats or dogs:\")
+      (loop []
+        (let [v (<! c)]
+          (cond (nil? v) (println \"Cat/dog guy exiting\")
+                :else (do 
+                        (>! print-chan (pr-str \"Cat/Dog guy got: \" v))
+                        (recur))))
+        )))" "(let [c (chan 1)]
+  (sub p :dogs c)
+  (go (println \"I like dogs:\")
+      (loop []
+        (let [v (<! c)]
+          (cond (nil? v) (println \"Dog guy exiting\")
+                :else  (do 
+                         (>! print-chan (pr-str \"Dog guy got: \" v))
+                         (recur))))
+        )))" "(let [c (chan 1)]
+  (sub p :cats c)
+  (go (println \"I like cats:\")
+      (loop []
+        (let [v (<! c)]
+          (cond (nil? v) (println \"Cat guy exiting\")
+                :else  (do 
+                         (>! print-chan (pr-str \"Cat guy got: \" v))
+                         (recur))))
+        )))" "(go (loop []
+      (when-let [v (<! print-chan)]
+        (println v)
+        (recur))))" "(def print-chan (chan 1))" "(def p (pub to-pub :tag))" "(def to-pub (chan 1))" "(ns test-async
+  (:refer-clojure :exclude [map reduce into partition partition-by take merge])
+  (:require [clojure.core.async :refer :all :as async]
+            [clojure.pprint :refer [pprint]]
+            [cheshire.core :as cheshire]))" "(def p (pub to-pub :tag))" "(def to-pub (chan 1))" "(close! to-pub)" "(send-with-tags {:msg \"New Pet Story\"
+                 :tags [:cats :dogs]})" "(send-with-tags {:msg \"New Dog Story\"
+                 :tags [:dogs]})" "(send-with-tags {:msg \"New Cat Story\"
+                 :tags [:cats]})" "(defn send-with-tags [msg]
+  (doseq [tag (:tags msg)]
+    (println \"sending... \" tag)
+    (>!! to-pub {:tag tag
+                 :msg (:msg msg)})))" "(let [c (chan 1)]
+  (sub p :dogs c)
+  (sub p :cats c)
+  (go (println \"I like cats or dogs:\")
+      (loop []
+        (let [v (<! c)]
+          (cond (nil? v) (println \"Cat/dog guy exiting\")
+                :else (do 
+                        (>! print-chan (pr-str \"Cat/Dog guy got: \" v))
+                        (recur))))
+        )))" "(let [c (chan 1)]
+  (sub p :cats c)
+  (go (println \"I like cats:\")
+      (loop []
+        (let [v (<! c)]
+          (cond (nil? c) (println \"Cat guy exiting\")
+                :else  (do 
+                         (>! print-chan (pr-str \"Cat guy got: \" v))
+                         (recur))))
+        )))" "(let [c (chan 1)]
+  (sub p :dogs c)
+  (go (println \"I like dogs:\")
+      (loop []
+        (let [v (<! c)]
+          (cond (nil? c) (println \"Dog guy exiting\")
+                :else  (do 
+                         (>! print-chan (pr-str \"Dog guy got: \" v))
+                         (recur))))
+        )))" "(let [c (chan 1)]
+  (sub p :cats c)
+  (go (println \"I like cats:\")
+      (loop []
+        (when-let [v (<! c)]
+          (>! print-chan (pr-str \"Cat guy got: \" v))
+          (recur))
+        (println \"Cat guy exiting\"))))" "(go (loop []
+      (when-let [v (<! print-chan)]
+        (println v)
+        (recur))))" "(def print-chan (chan 1))" "(def p (pub to-pub :tag))" "(def to-pub (chan 1))" "(let [c (chan 1)]
+  (sub p :cats c)
+  (go (println \"I like cats:\")
+      (loop []
+        (when-let [v (<! c)]
+          (>! print-chan (pr-str \"Cat guy got: \" v))
+          (recur))
+        (println \"Cat guy exiting\"))))" "(go (loop []
+      (when-let [v (<! print-chan)]
+        (println v)
+        (recur))))" "(def print-chan (chan 1))" "(close! to-mult)" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (cond (nil?  v) (println\"done\") 
+                :else (do 
+                        (println \"Got! \" v)
+                        (recur)))
+          )
+        
+        )))" "(def m (mult to-mult))" "(def to-mult (chan 1))" "(close! to-mult)" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (cond (nil?  v) (println\"done\") 
+                :else (do 
+                        (println \"Got! \" v)
+                        (recur)))
+          )
+        
+        )))" "(def m (mult to-mult))" "(def to-mult (chan 1))" "(def m (mult to-mult))" "(close! to-mult)" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (cond (nil?  v) (println\"done\") :else (recur))
+          )
+        
+        )))" "(def m (mult to-mult))" "(def to-mult (chan 1))" "1" "(close! to-mult)" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (cond (nil?  v) (println\"done\") :else (recur))
+          )
+        
+        )))" "(def to-mult (chan 1))" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (cond (nil?  v) (println\"done\") :else (recur))
+          )
+        
+        )))" "(nil? nil)" "(cond  nil \"hello\" 1  \"bla\")" "(cond ( nil \"hello\") (1  \"bla\"))" "(cond nil \"hello\" \"bla\")" "(cond false \"hello\" \"bla\")" "(cond 1 \"hello\")" "(close! to-mult)" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if-not v (println\"done\") (recur)))
+        
+        )))" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if-not v (println\"done\") (recur)))
+        
+        )))" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if-not v (println\"done\") (recur)))
+        
+        )))" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if-not v (println\"done\") (recur)))
+        
+        )))" "(def m (mult to-mult))" "(def to-mult (chan 1))" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if-not v (println\"done\") (recur)))
+        
+        )))" "(close! to-mult)" "(>!! to-mult 43)" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if-not v (println\"done\") (recur)))
+        
+        )))" "(def m (mult to-mult))" "(def to-mult (chan 1))" "(close! to-mult)" "(>!! to-mult 42)" "(>!! to-mult 43)" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if-not v (println\"done\") (recur)))
+        
+        )))" "(close! to-mult)" "(>!! to-mult 43)" "(>!! to-mult 42)" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if-not v \"done\" (recur)))
+        
+        )))" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if-not v (recur)))
+        
+        )))" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if v (recur)))
+        
+        )))" "(def m (mult to-mult))" "(def to-mult (chan 1))" "(def c (chan))" "1" "(ns user)" "1" "(ns test-async
+  (:refer-clojure :exclude [map reduce into partition partition-by take merge])
+  (:require [clojure.core.async :refer :all :as async]
+            [clojure.pprint :refer [pprint]]
+            [cheshire.core :as cheshire]))" "1" "(ns test-async)" "1" "(ns user)" "1" "(def to-mult (chan 1))" "1" "(let [d (chan 1)]
+  (tap m d)
+  (go (loop []
+        (let [v (<! d)]
+          (println \"Got! \" v)
+          (if v (recur)))
+        
+        )))")

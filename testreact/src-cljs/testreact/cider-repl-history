@@ -1,0 +1,316 @@
+;; -*- coding: utf-8-unix -*-
+;; Automatically written history of CIDER REPL session
+;; Edit at your own risk
+
+("exit" ":quit/cljs" "(require 'mjstarter.core) " "(mjstarter.core/weasel)" "(require 'mjstarter.core) (mjstarter.core/weasel)" "(make-scene \"canvas\" 100 100)" "(defn make-scene [canvas rows cols]
+  (dotimes [x cols]
+    (dotimes [y rows]
+      (make-cell canvas (* 10 x) (* 10 y)))))" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    (println ctx)
+    (go (while true
+          (set! (.-fillStyle ctx) (rand-nth colors))
+          (.fillRect ctx x y 10 10)
+          (<! (timeout (rand-int 1000)))))))" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById \"canvas\")
+                ;; (.getContext \"2d\")
+)]
+    (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(def colors [\"#FF0000\"
+             \"#00FF00\"
+             \"#0000FF\"
+             \"#00FFFF\"
+             \"#FFFF00\"
+             \"#FF00FF\"])" "(def canvas (.getElementById js/document \"canvas\"))" "(ns cljs-async
+  (:require [cljs.core.async :refer [chan put! take! timeout] :as async]
+            [clojure.walk :refer [prewalk]]
+            [goog.net.XhrIo])
+  (:require-macros [cljs.core.async.macros :refer [go]]))" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById \"canvas\")
+                ;; (.getContext \"2d\")
+)]
+    (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById \"canvas\")
+                ;; (.getContext \"2d\")
+)]
+    (println ctx)
+    (.getContext \"2d\" ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById \"canvas\")
+                ;; (.getContext \"2d\")
+)]
+    (println ctx)
+    (.getContext \"2d\" ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById \"canvas\")
+                (.getContext \"2d\")
+)]
+    (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById \"canvas\")
+                ;; (.getContext \"2d\")
+)]
+    (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById \"canvas\")
+                ;; (.getContext \"2d\")
+)]
+    ;; (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById \"canvas\")
+                (.getContext \"2d\")
+)]
+    ;; (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\")
+)]
+    ;; (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                ;; (.getContext \"2d\")
+)]
+    ;; (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                ;; (.getElementById canvas)
+                ;; (.getContext \"2d\")
+)]
+    ;; (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (println \"hello\")
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    ;; (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    ;; (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    (println ctx)
+    ;; (go (while true
+    ;;       (set! (.-fillStyle ctx) (rand-nth colors))
+    ;;       (.fillRect ctx x y 10 10)
+    ;;       (<! (timeout (rand-int 1000)))))
+)
+)" "(make-cell \"canvas\" 100 100)" "(make-cell)" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    (println ctx)
+    (go (while true
+          (set! (.-fillStyle ctx) (rand-nth colors))
+          (.fillRect ctx x y 10 10)
+          (<! (timeout (rand-int 1000)))))))" "(def colors [\"#FF0000\"
+             \"#00FF00\"
+             \"#0000FF\"
+             \"#00FFFF\"
+             \"#FFFF00\"
+             \"#FF00FF\"])" "(def canvas (.getElementById js/document \"canvas\"))" "(make-scene \"canvas\" 100 100)" "(defn make-scene [canvas rows cols]
+  (dotimes [x cols]
+    (dotimes [y rows]
+      (make-cell canvas (* 10 x) (* 10 y)))))" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    (go (while true
+          (set! (.-fillStyle ctx) (rand-nth colors))
+          (.fillRect ctx x y 10 10)
+          (<! (timeout (rand-int 1000)))))))" "(make-scene \"canvas\" 100 100)" "(defn make-scene [canvas rows cols]
+  (dotimes [x cols]
+    (dotimes [y rows]
+      (make-cell canvas (* 10 x) (* 10 y)))))" "(make-scene \"canvas\" 100 100)" "(defn make-scene [canvas rows cols]
+  (dotimes [x cols]
+    (dotimes [y rows]
+      (make-cell canvas (* 10 x) (* 10 y)))))" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    (go (while true
+          (set! (.-fillStyle ctx) (rand-nth colors))
+          (.fillRect ctx x y 10 10)
+          (<! (timeout (rand-int 1000)))))))" "(def colors [\"#FF0000\"
+             \"#00FF00\"
+             \"#0000FF\"
+             \"#00FFFF\"
+             \"#FFFF00\"
+             \"#FF00FF\"])" "(def canvas (.getElementById js/document \"canvas\"))" "(ns cljs-async
+  (:require [cljs.core.async :refer [chan put! take! timeout] :as async]
+            [clojure.walk :refer [prewalk]]
+            [goog.net.XhrIo])
+  (:require-macros [cljs.core.async.macros :refer [go]]))" "(def canvas (.getElementById js/document \"canvas\"))" "(js/alert \"We're running ClojureScript\")" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    (go (while true
+          (set! (.-fillStyle ctx) (rand-nth colors))
+          (.fillRect ctx x y 10 10)
+          (<! (timeout (rand-int 1000)))))))" "(defn make-scene [canvas rows cols]
+  (dotimes [x cols]
+    (dotimes [y rows]
+      (make-cell canvas (* 10 x) (* 10 y)))))" "(defn make-cell [canvas x y]
+  (let [ctx (-> js/document
+                (.getElementById canvas)
+                (.getContext \"2d\"))]
+    (go (while true
+          (set! (.-fillStyle ctx) (rand-nth colors))
+          (.fillRect ctx x y 10 10)
+          (<! (timeout (rand-int 1000)))))))" "(def colors [\"#FF0000\"
+             \"#00FF00\"
+             \"#0000FF\"
+             \"#00FFFF\"
+             \"#FFFF00\"
+             \"#FF00FF\"])" "(def canvas (.getElementById js/document \"canvas\"))" "(println take!)" "(go 32)" "(take! c (fn [x]
+           (println x)))" "(do 
+  (println \"hello\\n\")
+  (put! c 42 (fn [arg] (println \"\\nDone putting: \" arg)))
+  (println \"hello\\n\"))" "(take! c (fn [x]
+           (println x)))" "(do 
+  (println \"hello\\n\")
+  (put! c 42 (fn [arg] (println \"\\nDone putting: \" arg)))
+  (println \"hello\\n\"))" "(def c (chan))" "(ns cljs-async
+  (:require [cljs.core.async :refer [chan put! take! timeout] :as async]
+            [clojure.walk :refer [prewalk]]
+            [goog.net.XhrIo])
+  (:require-macros [cljs.core.async.macros :refer [go]]))" "(def c (chan))" "(js/alert \"We're running ClojureScript\")" "(def c (chan))" "(take! c (fn [x]
+           (println x)))" "(println take!)" "(go 32)" "(do 
+  (println \"hello\\n\")
+  (put! c 42 (fn [arg] (println \"\\nDone putting: \" arg)))
+  (println \"hello\\n\"))" "(take! c (fn [x]
+           (println x)))" "(do 
+  (println \"hello\\n\")
+  (put! c 42 (fn [arg] (println \"\\nDone putting: \" arg)))
+  (println \"hello\\n\"))" "(take! c (fn [x]
+           (println x)))" "(do 
+  (println \"hello\\n\")
+  (put! c 42 (fn [arg] (println \"Done putting: \" arg)))
+  (println \"hello\\n\"))" "(do 
+  (println \"hello\\n\")
+  (put! c 42 (fn [arg] (println arg)))
+  (println \"hello\\n\"))" "(take! c (fn [x]
+           (println x)))" "(do 
+  (println \"hello\\n\")
+  (put! c 42)
+  (println \"hello\\n\"))" "(do 
+  (println \"hello\")
+  (put! c 42)
+  (println \"hello\"))" "(do 
+  (println \"hello\")
+  (put! c 42)
+  (println \"hello\")
+
+)" "(do 
+  (println \"hello\")
+  (put! c 42))" "(def c (chan))" "(js/alert \"We're running ClojureScript\")" "(ns cljs-async
+  (:require [cljs.core.async :refer [chan put! take! timeout] :as async]
+            [clojure.walk :refer [prewalk]]
+            [goog.net.XhrIo])
+  (:require-macros [cljs.core.async.macros :refer [go]]))" "(mountit simple-component)" "(defn simple-component []
+  [:div
+   [state-ful-with-atom]
+   [:p \"I am a component ! \" ]
+   [:p.someclass
+    @click-count
+    \"I have \" [:strong \"italics\"]
+    [:span {:style {:color \"purple\"}} \" and red \"] \"text.\"]])" "(defonce click-count (atom 0))" "(ns testreact.react
+  (:require [reagent.core :as reagent :refer [atom]]))" "(defonce click-count (atom 0))" "(. js/console (log \"123\"))" "(js/console (log \"123\"))" "(+ 1 1 )" "(defn simple-component []
+  [:div
+   [state-ful-with-atom]
+   [:p \"I am a component ! \" ]
+   [:p.someclass
+    @click-count
+    \"I have \" [:strong \"italics\"]
+    [:span {:style {:color \"purple\"}} \" and red \"] \"text.\"]])" "1" "(require 'mjstarter.core) (mjstarter.core/weasel)")
