@@ -14,14 +14,17 @@
 ;; standard and piggyback:
 ;; (repl/connect "http://localhost:8090/repl")
 
+
 ;;weasel:
 (if-not (ws-repl/alive?)
   (ws-repl/connect "ws://127.0.0.1:8092"))
 
 ;; figwheel
-; (fw/watch-and-reload
+                                        ; (fw/watch-and-reload
+
 ;   ;; :websocket-url "ws://127.0.0.1:3449/figwheel-ws" 
 ;   :jsload-callback (fn [] (print "reloaded"))) ;; optional callback
+
 
 (enable-console-print!)
 
